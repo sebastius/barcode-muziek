@@ -2,6 +2,13 @@
 
 Scan de barcode van een CD, en het album speelt via YouTube Music op je HomePods.
 
+> [!NOTE]
+> **Gemaakt met AI.** De code en documentatie in dit repo zijn grotendeels geschreven door een AI-assistent
+> (Claude), in opdracht van en getest door mij voor mijn eigen thuissituatie.
+>
+> **Geen support, geen bijdragen.** Dit is een persoonlijk project dat ik deel zoals het is. Ik reageer niet op
+> issues, pull requests of andere verzoeken. Wil je iets aanpassen? Fork het gerust en maak het je eigen.
+
 ```
 barcodescanner ──UART──▶ Pico W ──HTTP──▶ barcoder.py ──▶ Discogs + MusicBrainz (tegelijk, + cache)
                                                │
@@ -119,3 +126,7 @@ knippert langzaam = WiFi verbinden; kort aan = scan wordt verstuurd; 5× snel = 
 De upload van de albumhoes naar het e-ink-display (`send_image`) zit er niet meer in. Music Assistant zet de hoes al
 als `entity_picture` op de media_player, dus een HA-automatisering kan die doorsturen. Of laat het weten, dan zet ik
 het terug in `barcoder.py`.
+
+## Licentie
+
+[MIT](LICENSE): doe ermee wat je wilt, zonder enige garantie.
