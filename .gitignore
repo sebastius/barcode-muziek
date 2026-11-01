@@ -1,0 +1,7 @@
+.env
+cache.json
+data/
+.venv/
+__pycache__/
+pico/config.py
+.DS_Store

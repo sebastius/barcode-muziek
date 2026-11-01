@@ -1,0 +1,20 @@
+services:
+  music-assistant:
+    container_name: music-assistant
+    image: ghcr.io/music-assistant/server:2.10.9
+    restart: unless-stopped
+    # Host-netwerk is verplicht: AirPlay-discovery (mDNS) werkt niet via Docker's bridge-netwerk
+    network_mode: host
+    volumes:
+      - ./data:/data
+    environment:
+      - LOG_LEVEL=info
+
+  # Genereert de PO tokens die YouTube eist; Music Assistant verwacht hem op 127.0.0.1:4416
+  yt-po-token:
+    container_name: yt-po-token
+    image: brainicism/bgutil-ytdlp-pot-provider:2.0.2
+    restart: unless-stopped
+    init: true
+    ports:
+      - "127.0.0.1:4416:4416"

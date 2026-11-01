@@ -1,0 +1,17 @@
+[Unit]
+Description=Barcoder
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=bas
+Group=bas
+Type=simple
+Restart=always
+EnvironmentFile=/home/bas/barcode-muziek/server/.env
+Environment=CACHE_FILE=/home/bas/barcode-muziek/server/cache.json
+ExecStart=/home/bas/barcode-muziek/server/.venv/bin/python /home/bas/barcode-muziek/server/barcoder.py
+WorkingDirectory=/home/bas/barcode-muziek/server
+
+[Install]
+WantedBy=multi-user.target
